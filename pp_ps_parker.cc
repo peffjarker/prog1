@@ -166,12 +166,12 @@ int main(int argc, const char *argv[]) {
     return (-1);
   }
 
-  cout << setw(4) << "PID" << setw(36) << "COMMAND" << setw(6) << "STATE"
+  cout << setw(6) << "PID" << setw(36) << "COMMAND" << setw(6) << "STATE"
        << setw(15) << "%CPU" << setw(15) << "%MEM" << setw(22) << "VSZ"
        << setw(10) << "RSS" << setw(6) << "CORE";
   cout << endl;
   for (int i = 0; i < ps.size(); ++i) {
-    cout << setw(4) << ps[i].PID;
+    cout << setw(6) << ps[i].PID;
     cout << setw(36) << ps[i].command;
     cout << setw(6) << ps[i].state;
     cout << setw(15) << ps[i].percCPU;

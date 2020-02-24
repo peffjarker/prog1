@@ -1,3 +1,9 @@
+/*
+Jeff Parker
+CS4420
+Programming Assignment 1:PP_PS
+This program recreates the ps program on Unix systems
+*/
 #include <bits/stdc++.h>
 #include <cstring>
 #include <dirent.h>
@@ -11,7 +17,6 @@ using namespace std;
 float uptime;
 
 struct Process {
-
   string sheet[52];
 };
 
@@ -54,6 +59,10 @@ bool compCom(Output &p1, Output &p2) {
 
 void processLine(string line) {
   Process proc;
+   // This for loop helps process the line by
+  // deleting characters that make it more difficult
+  // to be parsed: '(', ')' and when a command contains
+  // a space it will be changed ' ' -> '-' (line 69 & 7
   for (int i = 0; i < line.length(); ++i) {
     if (line[i] == '(') {
       line.erase(i, 1);
@@ -70,6 +79,9 @@ void processLine(string line) {
     }
   }
 
+  // This stringstream parses the line by space and adds then into
+  // a structure called proc containing an array of strings sized 52
+  // that process is then pushed onto the process vector
   istringstream iss(line);
   int counter = 0;
   for (string s; iss >> s;) {
@@ -166,6 +178,7 @@ int main(int argc, const char *argv[]) {
     return (-1);
   }
 
+   // output
   cout << setw(6) << "PID" << setw(36) << "COMMAND" << setw(6) << "STATE"
        << setw(15) << "%CPU" << setw(15) << "%MEM" << setw(22) << "VSZ"
        << setw(10) << "RSS" << setw(6) << "CORE";

@@ -92,6 +92,11 @@ void processLine(string line) {
 }
 
 int main(int argc, const char *argv[]) {
+      if (argc == 1) {
+      // catches for arguments
+      cout << "Error: no argument set. (-cpu, -mem, -com, -pid)" << endl;
+      return (-1);
+    }
   FILE *file = NULL;
   char *line = NULL;
   size_t line_buf_size = 0;
